@@ -9,4 +9,6 @@ public interface RepositorioCurso {
 	List<Curso>mostrarTodosLosCursos();
 	
 	void registrarCurso(Curso curso);
+	
+	Curso mostrarCurso (Long id);
 }

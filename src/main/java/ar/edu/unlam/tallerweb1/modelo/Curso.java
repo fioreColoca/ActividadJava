@@ -12,10 +12,8 @@ public class Curso{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	private Integer cantidadMaximaAlumno;
 	private String nombreDelCurso;
 	private String comision;
-	private Integer  cantidadALumnos;
 	private Boolean eliminado;
 
 
@@ -25,14 +23,6 @@ public class Curso{
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public Integer getCantidadMaximaAlumno() {
-		return cantidadMaximaAlumno;
-	}
-
-	public void setCantidadMaximaAlumno(Integer cantidadMaximaAlumno) {
-		this.cantidadMaximaAlumno = cantidadMaximaAlumno;
 	}
 
 	public String getNombreDelCurso() {
@@ -49,15 +39,6 @@ public class Curso{
 
 	public void setComision(String comision) {
 		this.comision = comision;
-	}
-
-
-	public Integer getCantidadALumnos() {
-		return cantidadALumnos;
-	}
-
-	public void setCantidadALumnos(Integer cantidadALumnos) {
-		this.cantidadALumnos = cantidadALumnos;
 	}
 
 

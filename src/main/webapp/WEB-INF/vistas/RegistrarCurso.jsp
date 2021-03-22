@@ -15,10 +15,7 @@
 						required name="nombre" id="nombre"> <label for="apellido">Comision:</label>
 					<input type="text" class="form-control mb-3"
 						placeholder="Ingrese comision" required name="comision"
-						id="comision"> <label for="dni">Cantidad maxima de
-						alumnos:</label> <input type="number" class="form-control"
-						placeholder="Ingrese valor" required name="cantidadMaxima"
-						id="cantidadMaxima">
+						id="comision"> 
 
 					<button type="submit"
 						class="btn btn-info btn-lg btn-block mt-5 mb-5">Registrar</button>

@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
+import ar.edu.unlam.tallerweb1.modelo.Alumno;
 import ar.edu.unlam.tallerweb1.modelo.Curso;
 
 @Repository
@@ -15,7 +16,7 @@ public class RepositorioCursoImpl implements RepositorioCurso {
 
 	@Inject
 	private SessionFactory sessionFactory;
-	
+
 	@Override
 	public List<Curso> mostrarTodosLosCursos() {
 		return sessionFactory.getCurrentSession().createCriteria(Curso.class).list();
@@ -26,8 +27,10 @@ public class RepositorioCursoImpl implements RepositorioCurso {
 		Session session = sessionFactory.getCurrentSession();
 		session.save(curso);
 	}
-	
-	
-	
+
+	@Override
+	public Curso mostrarCurso(Long id) {
+		return sessionFactory.getCurrentSession().get(Curso.class, id);
+	}
 
 }

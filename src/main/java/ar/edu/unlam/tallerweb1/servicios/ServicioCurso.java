@@ -11,4 +11,8 @@ public interface ServicioCurso {
 	
 	void registrarCurso(Curso curso);
 	
+	Curso buscarCurso(Long id);
+	
+	void eliminarCurso(Long id);
+	
 }

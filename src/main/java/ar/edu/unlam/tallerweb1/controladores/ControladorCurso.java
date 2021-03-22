@@ -21,25 +21,6 @@ public class ControladorCurso {
 	@Inject
 	private ServicioCurso servicioCursos;
 
-	@RequestMapping(path = "/cursoRegistrado", method = RequestMethod.GET)
-	public ModelAndView cursoRegistrado(@RequestParam(value = "nombre", required = true) String nombre,
-			@RequestParam(value = "comision", required = true) String comision,
-			@RequestParam(value = "cantidadMaxima", required = true) Integer cantidadMaxima,
-
-			HttpServletRequest request) {
-
-		Curso curso = new Curso();
-		curso.setEliminado(false);
-		curso.setNombreDelCurso(nombre);
-		curso.setCantidadMaximaAlumno(cantidadMaxima);
-		curso.setComision(comision);
-		curso.setCantidadALumnos(0);
-
-		servicioCursos.registrarCurso(curso);
-
-		return new ModelAndView("redirect:/cursos");
-	}
-
 	@RequestMapping(path = "/cursos", method = RequestMethod.GET)
 	public ModelAndView irVerCuros() {
 
@@ -51,8 +32,33 @@ public class ControladorCurso {
 		return new ModelAndView("cursos", modelo);
 	}
 
+	@RequestMapping(path = "/cursoRegistrado", method = RequestMethod.GET)
+	public ModelAndView cursoRegistrado(@RequestParam(value = "nombre", required = true) String nombre,
+			@RequestParam(value = "comision", required = true) String comision,
+			HttpServletRequest request) {
+
+		Curso curso = new Curso();
+		curso.setEliminado(false);
+		curso.setNombreDelCurso(nombre);
+		curso.setComision(comision);
+
+		servicioCursos.registrarCurso(curso);
+
+		return new ModelAndView("redirect:/cursos");
+	}
+
 	@RequestMapping(path = "/RegistrarCurso", method = RequestMethod.GET)
 	public ModelAndView registrarCurso() {
 		return new ModelAndView("RegistrarCurso");
 	}
+	
+	@RequestMapping(path = "/eliminarCurso")
+	public ModelAndView eliminarCurso(@RequestParam(value = "eliminarCurso", required = true) Long idCurso,
+			HttpServletRequest request) {
+		
+		servicioCursos.eliminarCurso(idCurso);
+				
+		return new ModelAndView("redirect:/cursos");
+	}
+
 }

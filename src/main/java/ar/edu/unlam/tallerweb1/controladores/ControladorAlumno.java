@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,6 +20,21 @@ public class ControladorAlumno {
 
 	@Inject
 	private ServicioAlumno servicioAlumno;
+	
+	
+	@RequestMapping(path = "/alumnos", method = RequestMethod.GET)
+	public ModelAndView irVerAlumnos() {
+
+		ModelMap modelo = new ModelMap();
+
+		List<Alumno> alumnos = servicioAlumno.devolverAlumnos();
+
+		modelo.put("title", "Actividad | Alumnos");
+		modelo.put("alumnos", alumnos);
+
+		return new ModelAndView("alumnos", modelo);
+	}
+	
 
 	@RequestMapping(path = "/alumnoRegistrado", method = RequestMethod.GET)
 	public ModelAndView alumnoRegistrado(@RequestParam(value = "nombre", required = true) String nombre,
@@ -40,19 +54,6 @@ public class ControladorAlumno {
 		return new ModelAndView("redirect:/alumnos");
 	}
 
-	@RequestMapping(path = "/alumnos", method = RequestMethod.GET)
-	public ModelAndView irVerAlumnos() {
-
-		ModelMap modelo = new ModelMap();
-
-		List<Alumno> alumnos = servicioAlumno.devolverAlumnos();
-
-		modelo.put("title", "Actividad | Alumnos");
-		modelo.put("alumnos", alumnos);
-
-		return new ModelAndView("alumnos", modelo);
-	}
-
 	@RequestMapping(path = "/RegistrarAlumno", method = RequestMethod.GET)
 	public ModelAndView registrarAlumnos() {
 		return new ModelAndView("RegistrarAlumno");
@@ -60,14 +61,12 @@ public class ControladorAlumno {
 	
 	
 	@RequestMapping(path = "/eliminarAlumno")
-	public ModelAndView eliminarAlumno(@RequestParam(value = "botonBorrar", required = true) Long idAlumno,
+	public ModelAndView eliminarAlumno(@RequestParam(value = "eliminarAlumno", required = true) Long idAlumno,
 			HttpServletRequest request) {
 		
-		Alumno alumnoAEliminar = servicioAlumno.buscarAlumno(idAlumno);
-		
-		alumnoAEliminar.setEliminado(true);
-		
-		return new ModelAndView("redirect:/home");
+		 servicioAlumno.eliminarAlumno(idAlumno);
+				
+		return new ModelAndView("redirect:/alumnos");
 	}
 
 }
