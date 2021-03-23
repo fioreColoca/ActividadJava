@@ -1,10 +1,10 @@
 <%@ include file="header.jsp" %>
 	<div class = "container">
-			<h1 class="text-info m-2">Listado de todos los cursos</h1>
+			<h1 class="letraRellena2 m-2">Listado de todos los cursos</h1>
 			<hr class="mb-3">
 			
 			
-		<a href="RegistrarCurso" type="button" class="btn btn-success mb-3"><span>Agregar curso </span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
+		<a href="RegistrarCurso" type="button" class="btn btn-info botonHome mb-3"><span>Agregar curso </span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
   		<path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
   		<path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
 		</svg> </a>	
@@ -23,7 +23,7 @@
         </thead>
         
        <c:if test="${empty cursos}">  
-       <tbody>
+       <tbody class="bg-light">
        	<tr class="text-center">
     	<th scope="row">No disponible</th>
     	<td scope="col">No disponible</td>
@@ -42,7 +42,7 @@
         
        <c:if test="${not empty cursos}">   
        <c:forEach items="${cursos}" var="curso">
-        <tbody>
+        <tbody class="bg-light">
        	<tr class="text-center">
     	<th scope="row">${curso.getId()}</th>
     	<td scope="col">${curso.getNombreDelCurso()}</td>
@@ -72,13 +72,6 @@
     	</div>
 		
 		</div>
-			
-		<!-- Placed at the end of the document so the pages load faster -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" ></script>
-		<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-		<script src="js/bootstrap.min.js" type="text/javascript"></script>
 		
+<%@ include file="footer.jsp" %>
 		
-
-	</body>
-</html>

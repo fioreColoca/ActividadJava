@@ -1,0 +1,30 @@
+.botonHome {
+	font-weight: 300;
+	font-size: 30px;
+	border-radius: 25px;
+	border: 5px double #006505;
+	width: 100%;
+}
+
+.botonHome:hover {
+	opacity: 0.6;
+	text-decoration: none;
+}
+
+.letraRellena {
+	font-weight: bolder;
+	color: #DBD7D7;
+	font-size: 100px;
+}
+
+.letraRellena2 {
+	font-weight: bolder;
+	color: #DBD7D7;
+	font-size: 50px;
+}
+
+.letraRellena3{
+	font-weight: bolder;
+	color: #DBD7D7;
+	font-size: 25px;
+}

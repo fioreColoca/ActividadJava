@@ -1,6 +1,6 @@
 <%@ include file="header.jsp"%>
 <div class="container">
-	<h1 class="text-info m-2">Registrar curso</h1>
+	<h1 class="letraRellena2 m-2">Registrar curso</h1>
 	<hr class="mb-3">
 
 
@@ -26,3 +26,5 @@
 	</div>
 
 </div>
+
+<%@ include file="footer.jsp" %>

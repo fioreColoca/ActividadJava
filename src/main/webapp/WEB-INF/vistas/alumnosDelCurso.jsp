@@ -1,10 +1,10 @@
 <%@ include file="header.jsp" %>
 
 <div class = "container">
-			<h1 class="text-info m-2">Curso</h1>
+			<h1 class="letraRellena2 m-2">Curso</h1>
 			<hr class="mb-3">
 			
-			<h3>${curso.getNombreDelCurso()}, asisten:</h3>
+			<h3 class="letraRellena3 m-3" >${curso.getNombreDelCurso()}, asisten:</h3>
 			
 				<div class="table-responsive-xl">
         <table class="table">
@@ -21,7 +21,7 @@
         </thead>
         
        <c:if test="${empty alumnos}">  
-       <tbody>
+       <tbody class="bg-light">
        	<tr class="text-center">
     	<th scope="col">No disponible</th>
     	<td scope="col">No disponible</td>
@@ -34,7 +34,7 @@
    	    
    	    <c:if test="${not empty alumnos}">   
         <c:forEach items="${alumnos}" var="alumno">
-        <tbody>
+        <tbody class="bg-light">
        	<tr class="text-center">
     	<th scope="row">${alumno.getId()}</th>
     	<td scope="col">${alumno.getNombre()}</td>
@@ -65,5 +65,4 @@
 
 </div>
 
-</body>
-</html>
+<%@ include file="footer.jsp" %>

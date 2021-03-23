@@ -41,9 +41,9 @@ public class ControladorCursada {
 		ModelMap modelo = new ModelMap();
 	
 		Alumno alumno = servicioAlumno.buscarAlumno(id);
-		/*
-		List<Curso> listaCursos = servicioCursada.buscarCursosQueNoEsta(alumno); */
-		List<Curso> listaCursos = servicioCursos.devolverCursos();
+		
+		List<Curso> listaCursos = servicioCursada.buscarCursosQueNoEsta(alumno); 
+	/*	List<Curso> listaCursos = servicioCursos.devolverCursos();*/
 				
 		modelo.put("title", "Cursada | Inscripcion");
 		modelo.put("alumno", alumno);
@@ -108,11 +108,7 @@ public class ControladorCursada {
 		Alumno alumno = servicioAlumno.buscarAlumno(idAlumno);
 		Curso curso = servicioCursos.buscarCurso(idCurso);
 		
-		servicioCursada.eliminar(alumno,curso);
-		
-		String estadoAuxiliar = "alumno";
-		
-		
+		servicioCursada.eliminar(alumno,curso);		
 		return new ModelAndView("redirect:/cursos");
 		
 	}

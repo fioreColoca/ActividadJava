@@ -10,7 +10,7 @@ public interface ServicioCursada {
 	
 	void registrarCursada(Cursada cursada);
 	
-	/*List<Curso> buscarCursosQueNoEsta (Alumno alumno); */
+	List<Curso> buscarCursosQueNoEsta (Alumno alumno); 
 	
 	List<Curso> buscarCursosPorAlumno (Alumno alumno);
 	
@@ -19,5 +19,9 @@ public interface ServicioCursada {
 	Cursada buscarCursada(Alumno alumno, Curso curso);
 	
 	void eliminar(Alumno alumno, Curso curso);
+	
+	List<Cursada> buscarCursadasPorAlumno(Alumno alumno);
+
+	List<Cursada> buscarCursadasPorCurso(Curso curso);
 
 }
