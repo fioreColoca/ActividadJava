@@ -1,4 +1,6 @@
 <%@ include file="header.jsp" %>
+<%@ include file="headerBody.jsp" %>
+
 	<div class = "container">
 			<h1 class="letraRellena2 m-2">Listado de todos los cursos</h1>
 			<hr class="mb-3">

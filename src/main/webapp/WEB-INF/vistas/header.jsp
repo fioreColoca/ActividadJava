@@ -18,6 +18,4 @@
 
           	 <body class="bg-dark">
 
-             <header>
-                    
-             </header>
+   
