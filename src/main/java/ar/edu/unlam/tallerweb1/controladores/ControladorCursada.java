@@ -15,7 +15,6 @@ import org.springframework.web.servlet.ModelAndView;
 import ar.edu.unlam.tallerweb1.modelo.Alumno;
 import ar.edu.unlam.tallerweb1.modelo.Cursada;
 import ar.edu.unlam.tallerweb1.modelo.Curso;
-import ar.edu.unlam.tallerweb1.repositorios.RepositorioAlumno;
 import ar.edu.unlam.tallerweb1.servicios.ServicioAlumno;
 import ar.edu.unlam.tallerweb1.servicios.ServicioCursada;
 import ar.edu.unlam.tallerweb1.servicios.ServicioCurso;
@@ -103,13 +102,19 @@ public class ControladorCursada {
 	@RequestMapping(path = "/eliminarAlumnoDelCurso")
 	public ModelAndView eliminarAlumnoDelCurso(@RequestParam(value = "idCurso", required = true) Long idCurso, 
 			@RequestParam(value = "idAlumno", required = true) Long idAlumno, 
+			@RequestParam(value = "auxiliar", required = false) Long auxiliar, 
 		
 			HttpServletRequest request) {
 		Alumno alumno = servicioAlumno.buscarAlumno(idAlumno);
 		Curso curso = servicioCursos.buscarCurso(idCurso);
 		
 		servicioCursada.eliminar(alumno,curso);		
-		return new ModelAndView("redirect:/cursos");
+		
+		if(auxiliar != null) {
+			return new ModelAndView("redirect:/cursos");
+		}else {
+			return new ModelAndView("redirect:/alumnos");
+		}
 		
 	}
 	

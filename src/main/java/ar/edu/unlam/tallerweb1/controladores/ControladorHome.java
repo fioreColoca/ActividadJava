@@ -7,10 +7,16 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class ControladorHome {
+	
+	
+	@RequestMapping(path = "/", method = RequestMethod.GET)
+	public ModelAndView inicio() {
+		return new ModelAndView("redirect:/home");
+	}
 
 	@RequestMapping(path = "/home", method = RequestMethod.GET)
-	public ModelAndView irAHome() {
+	public ModelAndView irALogin() {
 		return new ModelAndView("index");
-	}
-	
+	}		
+		
 }
